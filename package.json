@@ -5,9 +5,19 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./src --fix",
+    "pre-commit": "lint-staged",
     "pretest": "eslint --ignore-path .gitignore .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc -w"
+  },
+  "pre-commit": [
+    "pre-commit"
+  ],
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -27,7 +37,10 @@
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "lint-staged": "^8.0.4",
     "npm-run-all": "^4.1.3",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.15.1",
     "tslint": "^5.11.0",
     "typescript": "^3.1.6"
   },
